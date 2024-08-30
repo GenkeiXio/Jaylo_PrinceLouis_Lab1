@@ -12,9 +12,6 @@
 
     </head>
     <body>
-        <h1>Robiel Prince Cafe</h1>
-        <a href="{{ route('home') }}"><button>Home</button></a>
-        <a href="{{ route('about') }}"><button>About Us</button></a>
-        <a href="{{ route('content') }}"><button>Content</button></a>
+        <h1>{{ $message }}</h1>
     </body>
 </html>
