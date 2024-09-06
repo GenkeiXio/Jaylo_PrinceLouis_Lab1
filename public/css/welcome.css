@@ -20,6 +20,13 @@
     padding: 1em;
     text-align: center;
   }
+  .site-header h1{
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-right: auto; /* Pushes the logo to the left */
+}
+
   
   .logo {
     color: #fff;
@@ -65,20 +72,21 @@
     background-size: cover;
     background-position: center;
   }
+
   
   /* Hero Section Styles */
   
   .hero {
     padding: 2em;
-    text-align: center;
+    margin-right: auto;
     position: relative; /* Add position relative to hero section */
     z-index: 1; /* Add z-index to hero section to bring it above the background image */
     color: #FAF3E0; /* Add white text color to hero section */
   }
   
-  .hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+  .hero h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
   }
   
   .hero p {
@@ -106,6 +114,20 @@
     background-color: #444;
   }
   
+  .open-message{
+    padding: 20px;
+    border: 1px solid #fff; /* Add white border to features */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    color: #FAF3E0; /* Add white text color to hero section */
+    /*border: 0px solid #F7F4E9; /* Add white border to features */
+    background-color: #2E492B;
+    opacity: 0.8;
+    border-radius: 10px;
+  }
   /* Features Section Styles */
   
   .features {
@@ -185,6 +207,7 @@
     color: #FDF5E6;
     font-size: 1.2em;
     transition: color 0.3s ease;
+    text-decoration: none;
 }
 
 .social-links li a:hover {

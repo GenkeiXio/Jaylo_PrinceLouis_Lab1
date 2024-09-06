@@ -2,43 +2,42 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');*/
-
+//route for the login page at the root URL "/"
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('login');
+})->name('login');
 
-Route::get('/about', function () {
-    return view('about');
+//route for the welcome page with dynamic username, and view the welcome message with username
+Route::get('/welcome/{username}', function ($username) {
+    return view('welcome', ['username' => $username]);
+})->name('welcome');
+
+//route for the about page with dynamic username
+Route::get('/about/{username}', function ($username) {
+    return view('about', ['username' => $username]);
 })->name('about');
 
-Route::get('/content', function () {
-    return view('content');
+//route for the content page with dynamic username
+Route::get('/content/{username}', function ($username) {
+    return view('content', ['username' => $username]);
 })->name('content');
 
-Route::get('/contact', function () {
-    return view('contact');
+//route for the contact page with dynamic username
+Route::get('/contact/{username}', function ($username) {
+    return view('contact', ['username' => $username]);
 })->name('contact');
 
-Route::get('/user', function () {
-    return view('user');
-})->name('user');
+//handles the log in form and username validation
+Route::post('/welcome', function (\Illuminate\Http\Request $request) {
+    // Validate that the username only contains alphabetic characters (a-z, A-Z)
+    $request->validate([
+        'username' => 'required|alpha'
+    ], [
+        'username.alpha' => 'The username should only contain alphabetic characters.',
+        'username.required' => 'The username field is required.'
+    ]);
 
-Route::get('/', function () {
-    return view('home', ['message' => 'Welcome to our homepage!']);
-})->name('home');
+    $username = $request->input('username', 'Guest');
+    return redirect("/welcome/$username");
+});
 
-// Redirect from /home to /
-Route::redirect('/home', '/');
-
-// User route with a required username parameter
-Route::get('/user/{username}', function ($username) {
-    return view('user', ['username' => $username]);
-})->where('username', '[a-zA-Z]+');
-
-// User route with an optional username parameter
-Route::get('/user/{username?}', function ($username = 'Guest') {
-    return view('user', ['username' => $username]);
-})->where('username', '[a-zA-Z]+');

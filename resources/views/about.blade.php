@@ -10,12 +10,13 @@
 <body>
     <header class="site-header">
         <nav class="nav">
-            <a href="{{ route('home') }}" class="logo">Robiel Prince Cafe</a>
+            <a href="{{ route('welcome', ['username' => $username]) }}" class="logo">Robiel Prince Cafe</a>
             <b>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a href="{{ route('about') }}">About Us</a></li>
-                    <li class="nav-item"><a href="{{ route('content') }}">Content</a></li>
+                    <li class="nav-item"><a href="{{ route('welcome', ['username' => $username]) }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ route('about', ['username' => $username]) }}">About Us</a></li>
+                    <li class="nav-item"><a href="{{ route('content', ['username' => $username]) }}">Content</a></li>
+                    <li class="nav-item"><a href="{{ route('contact', ['username' => $username]) }}">Contact</a></li>
                 </ul>
             </b>
         </nav>
